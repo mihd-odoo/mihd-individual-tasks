@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="website_view_form_add_hide_price" model="ir.ui.view">
+        <field name="name">website.view.form.add.hide.price</field>
+        <field name="model">website</field>
+        <field name="inherit_id" ref="website.view_website_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='domain']" position="inside">
+                <field name="is_hide_price"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
