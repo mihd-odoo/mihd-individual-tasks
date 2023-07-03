@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template inherit_id="website_sale.header_cart_link" id="hide_cart" name="Hide Cart Logo">
+        <xpath expr="//t[@t-set='show_cart']" position="after">
+            <t t-set="show_cart" t-value="not website.is_hide_price" />
+        </xpath>
+    </template>
+
+    <template inherit_id="website_sale.products_item" id="hide_price" name="Hide Price">
+        <xpath expr="//div[hasclass('product_price')]" position="replace">
+            <t t-if="not website.is_hide_price">
+                <t>$0</t>
+            </t>
+        </xpath>
+    </template>
+
+    <template inherit_id="website_sale.product_price" id="hide_price_form" name="Hide Price Form">
+        <xpath expr="//div[@itemprop='offers']" position="replace">
+            <t t-if="not website.is_hide_price">
+                <t>$0</t>
+            </t>
+        </xpath>
+    </template>
+
+    <template inherit_id="website_sale.product" id="hide_buttons" name="Hide Buttons">
+        <xpath expr="//div[@id='add_to_cart_wrap']" position="replace">
+            <t t-if="not website.is_hide_price">
+                <t>$0</t>
+            </t>
+        </xpath>
+    </template>
+
+    <template inherit_id="website_sale.product" id="hide_buttons" name="Hide Buttons">
+        <xpath expr="//div[@id='o_wsale_cta_wrapper']" position="replace">
+            <div t-attrs-class="d-none flex flex-wrap align-items-center" t-if="not website.is_hide_price">
+                <t>$0</t>
+            </div>
+        </xpath>
+    </template>
+</odoo>
